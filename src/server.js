@@ -113,7 +113,7 @@ MongoClient.connect(
     if (err) return console.log(err);
     db = client.db("springideas");
 
-    app.listen(port, () => {
+    app.listen(process.env.PORT || 3000, () => {
       console.log(`Server started at localhost:${port}`);
     });
   }

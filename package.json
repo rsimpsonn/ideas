@@ -2,7 +2,7 @@
   "name": "ideas",
   "version": "1.0.0",
   "description": "Slack application for handling Spring ideas",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

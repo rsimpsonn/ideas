@@ -1,5 +1,3 @@
-const makeIdea = require("./makeIdea");
-
 const createErrorAttachment = error => ({
   color: "danger",
   text: `*Error*:\n${error.message}`,

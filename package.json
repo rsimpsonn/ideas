@@ -1,0 +1,18 @@
+{
+  "name": "ideas",
+  "version": "1.0.0",
+  "description": "Slack application for handling Spring ideas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "mongodb": "^3.1.0-beta4",
+    "request": "^2.87.0"
+  }
+}

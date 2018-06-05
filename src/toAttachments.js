@@ -34,7 +34,7 @@ getPeople = (design, code) => {
   return total;
 };
 
-toAttachments = list => {
+toAttachments = (list, username) => {
   const attachments = list
     .sort(function(a, b) {
       if (getPeople(a.design) < getPeople(b.design)) {
@@ -55,13 +55,13 @@ toAttachments = list => {
         .map(function(e) {
           return e.name;
         })
-        .indexOf("ryan");
+        .indexOf(username);
       const userCode = code !== -1 ? parseInt(entry.code[code].time) : false;
       const design = entry.design
         .map(function(e) {
           return e.name;
         })
-        .indexOf("ryan");
+        .indexOf(username);
       const userDesign = design !== -1
         ? parseInt(entry.design[design].time)
         : false;

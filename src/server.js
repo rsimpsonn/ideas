@@ -12,9 +12,16 @@ const ObjectId = require("mongodb").ObjectID;
 const app = new Express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const slackToken = "w9uW2kLjGTftv9rK6XxqinGA";
+setInterval(function() {
+  request.get("https://springideas.herokuapp.com/");
+}, 300000);
 
-const { PORT } = process.env;
+const {
+  PORT,
+  SLACK_TOKEN: slackToken,
+  MONGO_USERNAME: mongous,
+  MONGO_PASSWORD: mongopw
+} = process.env;
 
 const port = PORT || 80;
 
@@ -43,7 +50,7 @@ app.post("/listideas", (req, res) => {
       req.body.response_url,
       {
         json: true,
-        body: toAttachments(data),
+        body: toAttachments(data, req.body.user_name),
         headers: {
           "content-type": "application/json"
         }
@@ -108,7 +115,7 @@ app.post("/myideas", (req, res) => {
 });
 
 MongoClient.connect(
-  "mongodb://ryan:lespaul@ds133360.mlab.com:33360/springideas",
+  `mongodb://${mongous}:${mongopw}@ds133360.mlab.com:33360/springideas`,
   (err, client) => {
     if (err) return console.log(err);
     db = client.db("springideas");
